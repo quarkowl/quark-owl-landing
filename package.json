@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "quark-owl-landing",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "QuarkOwl Landing Page",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -13,18 +13,38 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "gatsby": "^2.13.15",
+    "@material-ui/core": "^4.2.0",
+    "gatsby": "^2.13.19",
+    "gatsby-image": "^2.2.6",
+    "gatsby-plugin-manifest": "^2.2.3",
+    "gatsby-plugin-offline": "^2.2.3",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.2",
+    "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-sharp": "^2.2.6",
+    "gatsby-plugin-typescript": "^2.1.2",
+    "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-transformer-sharp": "^2.2.3",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-helmet": "^6.0.0-beta",
+    "typescript": "^3.5.3"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@types/node": "^12.6.2",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-helmet": "^5.0.8",
+    "prettier": "^1.18.2",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/quarkowl/quark-owl-landing"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/quarkowl/quark-owl-landing/issues"
   }
 }
