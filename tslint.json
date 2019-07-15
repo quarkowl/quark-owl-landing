@@ -3,14 +3,19 @@
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
+    "no-empty-interface": false,
+    "no-unnecessary-callback-wrapper": false,
+    "no-unnecessary-generics": false,
     "interface-name": false,
     "semicolon": [true, "always"],
     "member-access": [false],
-    "ordered-imports": [true],
+    "ordered-imports": [false],
     "no-console": [false],
     "no-var-requires": true,
-    "jsx-no-lambda": false,
-    "quotemark": [true, "single", "jsx-double"]
+    "quotemark": [true, "single", "jsx-double"],
+    "no-submodule-imports": [false],
+    "object-literal-sort-keys": [false],
+    "jsx-no-lambda": false
   },
   "rulesDirectory": []
 }
