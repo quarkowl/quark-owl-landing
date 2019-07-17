@@ -3,15 +3,35 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+const siteConfig = require('./config.js');
 
 module.exports = {
   siteMetadata: {
-    title: `QuarkOwl LTD - JavaScript Engineering Solutions`,
-    description: ``,
-    author: `QuarkOwl LTD`,
+    url: siteConfig.url,
+    title: siteConfig.title,
+    short_name: siteConfig.short_name,
+    subtitle: siteConfig.subtitle,
+    copyright: siteConfig.copyright,
+    disqusShortname: siteConfig.disqusShortname,
+    menu: siteConfig.menu,
+    author: siteConfig.author,
+    contactFormUrl: siteConfig.contactFormUrl,
   },
   plugins: [
-    `gatsby-plugin-typescript`,
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        cssLoaderOptions: {
+          camelCase: false,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        allExtensions: true, // defaults to false
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
