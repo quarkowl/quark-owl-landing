@@ -18,18 +18,13 @@ module.exports = {
     contactFormUrl: siteConfig.contactFormUrl,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     {
       resolve: 'gatsby-plugin-sass',
       options: {
         cssLoaderOptions: {
           camelCase: false,
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        allExtensions: true, // defaults to false
       },
     },
     `gatsby-plugin-react-helmet`,
