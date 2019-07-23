@@ -9,11 +9,11 @@ import Container from '@material-ui/core/Container';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 
 import styles from './ContactForm.module.scss';
-import Grid from '@material-ui/core/Grid';
+import { useTAndCDialog } from '../../hooks';
 
 interface Props {
   url: string;
@@ -51,6 +51,12 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(5),
     textAlign: 'center'
   },
+  checkboxLabel: {
+    paddingTop: theme.spacing(2)
+  },
+  checkboxHelper: {
+    paddingLeft: theme.spacing(1)
+  }
 }));
 
 const ContactSchema = Yup.object().shape({
@@ -69,6 +75,12 @@ const ContactSchema = Yup.object().shape({
 
 const ContactForm: React.FC<Props> = ({ url }) => {
   const classes = useStyles(undefined);
+  const [ isDialogOpen, setIsDialogOpen ] = useTAndCDialog();
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
   return (
     <section className={classes.root} id="contact">
       <Typography variant="h3" component="h1" align={'center'} className={classes.titleContainer}>
@@ -203,23 +215,19 @@ const ContactForm: React.FC<Props> = ({ url }) => {
                   required={true}
                   error={errors.termsChecked != null}
                 >
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        id="content"
-                        required={true}
-                        checked={values.termsChecked}
-                        onChange={handleChange}
-                        inputProps={{
-                          name: 'termsChecked',
-                          id: 'terms-checked',
-                        }}
-                      />
-                    }
-                    label="I agree to the terms & conditions"
-                  />
+                  <label htmlFor="termsChecked" className={classes.checkboxLabel}>
+                    <Checkbox
+                      id="content"
+                      required={true}
+                      checked={values.termsChecked}
+                      onChange={handleChange}
+                      inputProps={{
+                        name: 'termsChecked',
+                        id: 'terms-checked',
+                      }}
+                    />I agree to the <Link onClick={handleOpenDialog}>terms & conditions</Link></label>
                   {errors.termsChecked && (
-                    <FormHelperText className={styles.helperClassName}>
+                    <FormHelperText className={[styles.helperClassName, classes.checkboxHelper].join(' ')}>
                       {errors.termsChecked}
                     </FormHelperText>
                   )}
