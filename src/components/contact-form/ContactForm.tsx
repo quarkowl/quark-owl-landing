@@ -24,6 +24,9 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(5),
   },
+  titleContainer: {
+    marginTop: theme.spacing(5),
+  },
   container: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -68,7 +71,7 @@ const ContactForm: React.FC<Props> = ({ url }) => {
   const classes = useStyles(undefined);
   return (
     <section className={classes.root} id="contact">
-      <Typography variant="h3" component="h1" align={'center'}>
+      <Typography variant="h3" component="h1" align={'center'} className={classes.titleContainer}>
         <span className={classes.mainTitle}>Contact Us</span>
       </Typography>
       <Container>

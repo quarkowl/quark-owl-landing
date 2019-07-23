@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
   image: {
     height: 55,
   },
+  titleContainer: {
+    marginTop: theme.spacing(5),
+  },
   title: {
     marginTop: theme.spacing(5),
   },
@@ -50,7 +53,7 @@ const TechnologyList: React.FC<Props> = ({ id }) => {
     <section className={classes.root} id={id}>
       <Typography
         variant="h3"
-        className={classes.title}
+        className={classes.titleContainer}
         component="h1"
         align={'center'}
       >

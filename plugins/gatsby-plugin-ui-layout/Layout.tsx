@@ -9,6 +9,7 @@ const UILayout: React.FC = ({ children }) => {
   return (
     <React.Fragment>
       <Helmet>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"

@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     flexDirection: 'column',
   },
+  titleContainer: {
+    marginTop: theme.spacing(5),
+  },
   container: {
     marginTop: theme.spacing(5),
     display: 'flex',
@@ -106,7 +109,8 @@ const About: React.FC<Props> = ({ id }) => {
       `}
       render={data => (
         <section className={classes.root} id={id}>
-          <Typography variant="h3" component="h1" align={'center'}>
+          <Typography variant="h3" component="h1" align={'center'}
+                      className={classes.titleContainer}>
             <span className={classes.mainTitle}>What we can do for you?</span>
           </Typography>
           <Container className={classes.container}>

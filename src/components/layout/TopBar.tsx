@@ -1,15 +1,17 @@
 import * as React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import Link from '@material-ui/core/Link';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ElevationScroll from './ElevationScroll';
-import { Simulate } from 'react-dom/test-utils';
+import MenuComponent from '../menu/Menu';
 
 const useStyles = makeStyles(theme => ({
   bar: {
     backgroundColor: theme.palette.common.white,
+  },
+  topBarContainer: {
+    flex: 1,
   },
   logo: {
     marginBottom: theme.spacing(2),
@@ -26,15 +28,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
-  right: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  rightLink: {
-    fontSize: theme.typography.h5.fontSize,
-    color: theme.palette.primary.main,
-    marginLeft: theme.spacing(3),
-  },
 }));
 
 interface MenuObject {
@@ -50,11 +43,6 @@ interface Props {
   };
 }
 
-const scrollToId = id => {
-  const element = document.getElementById(id);
-  window.scrollTo(0, element.offsetTop - 60);
-}; // General scroll to element function
-
 const TopBar: React.FC<Props> = ({ menu }) => {
   const classes = useStyles(undefined);
 
@@ -62,27 +50,16 @@ const TopBar: React.FC<Props> = ({ menu }) => {
     <ElevationScroll>
       <AppBar color="default" classes={{ colorDefault: classes.bar }}>
         <Toolbar className={classes.topBar}>
-          <img
-            src="/textLogo.svg"
-            alt="Company Name"
-            className={classes.logo}
-          />
+          <div className={classes.topBarContainer}>
+            <img
+              src="/textLogo.svg"
+              alt="Company Name"
+              className={classes.logo}
+            />
+          </div>
           <img src="/logo.svg" alt="Logo" className={classes.centerLogo} />
-          <div className={classes.right}>
-            {Object.entries(menu)
-              .sort(([key1, item1], [key2, item2]) => item2.order - item1.order)
-              .map(([key, item]) => (
-                <Link
-                  variant="h6"
-                  underline="hover"
-                  className={classes.rightLink}
-                  onClick={item.id ? () => scrollToId(item.id) : null}
-                  key={key}
-                  component={'a'}
-                >
-                  {item.label}
-                </Link>
-              ))}
+          <div className={classes.topBarContainer}>
+            <MenuComponent menu={menu}/>
           </div>
         </Toolbar>
       </AppBar>
