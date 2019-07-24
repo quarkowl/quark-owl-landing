@@ -60,6 +60,9 @@ workflows:
             branches:
               only:
                 - master
+      - test:
+          requires:
+            - install
       - deploy-gh:
           requires:
             - test
