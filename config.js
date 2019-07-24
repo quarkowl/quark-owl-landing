@@ -2,14 +2,13 @@ module.exports = {
   url: 'https://quarkowl.com',
   repo: 'quarkowl.com',
   title: `QuarkOwl LTD - JavaScript Engineering Solutions`,
-  short_name: `QuarkOwl LTD`,
-  subtitle: 'Even complex things could be explain in a simple way.',
+  short_name: `QuarkOwl`,
+  theme_color: '#00b9f1',
+  description: 'Software Engineering company established in 2016. Specialities: JavaScript with NodeJS, IoT, Artificial Intelligence',
   copyright: '© QuarkOwl 2019. All rights reserved.',
   disqusShortname: '',
   contactFormUrl:
     'https://docs.google.com/forms/d/e/1FAIpQLSfo-91_RaJoixJTWJJ5uA4JI0Ms7jkpO1YlhigUH6cDYQRI_Q/formResponse',
-  postsPerPage: 4,
-  googleAnalyticsId: 'UA-142799032-1',
   menu: {
     contact: {
       label: 'Contact',

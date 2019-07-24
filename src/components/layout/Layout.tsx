@@ -12,6 +12,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import TAndC from '../t-and-c/TAndC';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
+import SEO from '../seo/SEO';
 
 const useStyles = makeStyles(theme => ({
   pageContainer: {
@@ -37,6 +38,7 @@ export default function Layout({ children }) {
 
   return (
     <React.Fragment>
+      <SEO />
       <TopBar menu={menu} />
       <Container className={classes.pageContainer}>{children}</Container>
       <Divider />

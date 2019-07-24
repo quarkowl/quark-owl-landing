@@ -10,7 +10,8 @@ module.exports = {
     url: siteConfig.url,
     title: siteConfig.title,
     short_name: siteConfig.short_name,
-    subtitle: siteConfig.subtitle,
+    description: siteConfig.description,
+    theme_color: siteConfig.theme_color,
     copyright: siteConfig.copyright,
     disqusShortname: siteConfig.disqusShortname,
     menu: siteConfig.menu,
@@ -48,6 +49,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: [process.env.GOOGLE_ANALITICS_ID],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
@@ -64,8 +74,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `QuarkOwl LTD - JavaScript Engineering Solutions`,
-        short_name: `QuarkOwl`,
+        name: siteConfig.title,
+        short_name: siteConfig.short_name,
         start_url: `/`,
         background_color: `#f7fafd`,
         theme_color: `#00b9f1`,
