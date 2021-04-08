@@ -5,7 +5,7 @@ module.exports = {
   short_name: `QuarkOwl`,
   theme_color: '#00b9f1',
   description: 'Software Engineering company established in 2016. Specialities: JavaScript with NodeJS, IoT, Artificial Intelligence',
-  copyright: '© QuarkOwl 2019. All rights reserved.',
+  copyright: '© QuarkOwl 2017-2021. All rights reserved.',
   disqusShortname: '',
   contactFormUrl:
     'https://docs.google.com/forms/d/e/1FAIpQLSfo-91_RaJoixJTWJJ5uA4JI0Ms7jkpO1YlhigUH6cDYQRI_Q/formResponse',
