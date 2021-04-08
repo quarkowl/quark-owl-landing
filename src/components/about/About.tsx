@@ -123,8 +123,8 @@ const About: React.FC<Props> = ({ id }) => {
               >
                 <img
                   className={classes.image}
-                  src="/web-icon.svg"
-                  alt="services"
+                  src="/brain-icon.svg"
+                  alt="machine learning"
                 />
               </Grid>
               <Grid
@@ -134,11 +134,11 @@ const About: React.FC<Props> = ({ id }) => {
                 className={classes.descriptionContainer}
               >
                 <Typography variant="h4" className={classes.title}>
-                  Web Applications
+                  Machine Learning
                 </Typography>
                 <Typography variant="h6">
-                  {`Need a whole application? No problem, we're specialising in state of the art web applications. `}
-                  {`It doesn't matter if it's big or small, we can find right solution for you.`}
+                  {`We're entering times when AI is a real thing. It could help our clients and provide services that weren't available until now. `}
+                  {`We can help you bringing your application to the next level with smart data processing.`}
                 </Typography>
               </Grid>
             </Grid>
@@ -207,8 +207,8 @@ const About: React.FC<Props> = ({ id }) => {
               >
                 <img
                   className={classes.image}
-                  src="/brain-icon.svg"
-                  alt="machine learning"
+                  src="/web-icon.svg"
+                  alt="services"
                 />
               </Grid>
               <Grid
@@ -218,11 +218,11 @@ const About: React.FC<Props> = ({ id }) => {
                 className={classes.descriptionContainer}
               >
                 <Typography variant="h4" className={classes.title}>
-                  Machine Learning
+                  Web Applications
                 </Typography>
                 <Typography variant="h6">
-                  {`We're entering times when AI is a real thing. It could help our clients and provide services that weren't available until now. `}
-                  {`We can help you bringing your application to the next level with smart data processing.`}
+                  {`Need a whole application? No problem, we're specialising in state of the art web applications. `}
+                  {`It doesn't matter if it's big or small, we can find right solution for you.`}
                 </Typography>
               </Grid>
             </Grid>

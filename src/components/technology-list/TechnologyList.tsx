@@ -109,7 +109,7 @@ const TechnologyList: React.FC<Props> = ({ id }) => {
                 alt="TensorFlow"
               />
               <Typography variant="h6" className={classes.title}>
-                TensorFlow (AI)
+                TensorFlow
               </Typography>
             </div>
           </Grid>
@@ -117,11 +117,11 @@ const TechnologyList: React.FC<Props> = ({ id }) => {
             <div className={classes.item}>
               <img
                 className={classes.image}
-                src="webpack-logo.svg"
-                alt="Webpack"
+                src="pytorch-icon.svg"
+                alt="Pytorch"
               />
               <Typography variant="h6" className={classes.title}>
-                Webpack
+                Pytorch
               </Typography>
             </div>
           </Grid>

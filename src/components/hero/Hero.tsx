@@ -31,7 +31,7 @@ export default function AppFooter() {
         gutterBottom={true}
         align="center"
       >
-        Javascript Consulting!
+        ML Solutions
       </Typography>
       <Typography
         variant="h5"
