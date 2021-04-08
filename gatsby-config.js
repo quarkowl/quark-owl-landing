@@ -58,18 +58,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`300`, `400`, `500`, `700`],
-          },
-          {
-            family: `Material Icons`,
-          },
-        ],
-      },
+        google: {
+          families: ['Roboto', 'Material Icons']
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
