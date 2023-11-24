@@ -1,11 +1,12 @@
-module.exports = {
+const data = {
   url: 'https://quarkowl.com',
   repo: 'quarkowl.com',
-  title: `QuarkOwl LTD - JavaScript Engineering Solutions`,
+  title: `QuarkOwl LTD - Engineering Solutions`,
   short_name: `QuarkOwl`,
   theme_color: '#00b9f1',
-  description: 'Software Engineering company established in 2016. Specialities: JavaScript with NodeJS, IoT, Artificial Intelligence',
-  copyright: '© QuarkOwl 2017-2021. All rights reserved.',
+  description:
+    'Software Engineering company established in 2016. Specialities: JavaScript with NodeJS, IoT, Artificial Intelligence',
+  copyright: '© QuarkOwl. All rights reserved.',
   disqusShortname: '',
   contactFormUrl:
     'https://docs.google.com/forms/d/e/1FAIpQLSfo-91_RaJoixJTWJJ5uA4JI0Ms7jkpO1YlhigUH6cDYQRI_Q/formResponse',
@@ -37,3 +38,5 @@ module.exports = {
     },
   },
 };
+
+export default data;
