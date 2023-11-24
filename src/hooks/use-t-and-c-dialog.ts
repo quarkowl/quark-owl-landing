@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 
 const dialogState = {
   state: false,
-  setState(newState) {
+  setState(newState: boolean) {
     this.state = newState;
-    this.setters.forEach(setter => setter(this.state));
+    // @ts-ignore
+    this.setters.forEach((setter) => setter(this.state));
   },
   setters: [],
 };
@@ -14,7 +15,9 @@ dialogState.setState = dialogState.setState.bind(dialogState);
 
 const useTAndCDialog = (): [boolean, (shouldOpen?: boolean) => void] => {
   const [isDialogOpen, setIsDialogOpen] = useState(dialogState.state);
+  // @ts-ignore
   if (!dialogState.setters.includes(setIsDialogOpen)) {
+    // @ts-ignore
     dialogState.setters.push(setIsDialogOpen);
   }
 
