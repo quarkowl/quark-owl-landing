@@ -1,20 +1,21 @@
-import { merge, ThemeUIStyleObject } from "theme-ui"
-import tailwind from "@theme-ui/preset-tailwind"
+import { merge, ThemeUIStyleObject } from 'theme-ui';
+import tailwind from '@theme-ui/preset-tailwind';
 
-declare module "theme-ui" {
+declare module 'theme-ui' {
   interface Theme {
-    footer?: ThemeUIStyleObject
-    texts?: ThemeUIStyleObject
+    footer?: ThemeUIStyleObject;
+    texts?: ThemeUIStyleObject;
   }
 }
 
 const theme = merge(tailwind, {
   config: {
-    initialColorModeName: `dark`,
+    initialColorModeName: 'dark',
+    useColorSchemeMediaQuery: 'system',
   },
   colors: {
-    primary: "#7200da",
-    secondary: "#FC913A",
+    primary: '#7200da',
+    secondary: '#FC913A',
     text: tailwind.colors.gray[3],
     heading: tailwind.colors.white,
     background: `#141821`,
@@ -34,7 +35,7 @@ const theme = merge(tailwind, {
       light: {
         text: tailwind.colors.gray[8],
         heading: tailwind.colors.black,
-        primary: "#FC913A",
+        primary: '#FC913A',
         background: tailwind.colors.gray[1],
         divider: tailwind.colors.gray[2],
         textMuted: tailwind.colors.gray[6],
@@ -60,7 +61,7 @@ const theme = merge(tailwind, {
         color: `primary`,
         textDecoration: `none`,
         transition: `all 0.3s ease-in-out`,
-        "&:hover": {
+        '&:hover': {
           color: `primary`,
           textDecoration: `none`,
         },
@@ -77,8 +78,8 @@ const theme = merge(tailwind, {
       fontSize: [1, 2],
       letterSpacing: `-0.003em`,
       lineHeight: `body`,
-      "--baseline-multiplier": 0.179,
-      "--x-height-multiplier": 0.35,
+      '--baseline-multiplier': 0.179,
+      '--x-height-multiplier': 0.35,
       color: `text`,
     },
     blockquote: {
@@ -155,6 +156,6 @@ const theme = merge(tailwind, {
       },
     },
   },
-})
+});
 
 export default theme;

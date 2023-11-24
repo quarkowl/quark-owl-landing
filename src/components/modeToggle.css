@@ -1,16 +1,15 @@
 .theme-button-container {
     position: fixed;
     top: 12px;
-    background-color: rgba(196, 196, 196, 0.49);
-    border-radius: 50px;
 
 
     .theme-button {
+        background-color: rgba(196, 196, 196, 0.49);
+        border-radius: 50px;
         width: 46px;
         height: 46px;
         box-sizing: border-box;
         padding: 12px;
-        background: none;
         border: none;
         display: flex;
         justify-content: center;
