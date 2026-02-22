@@ -21,7 +21,29 @@ const ContactSchema = Yup.object().shape({
   termsChecked: Yup.bool().oneOf([true], 'You have to agree with terms and conditions first'),
 });
 
-const ContactForm: React.FC<Props> = ({ url= contactFormUrl }) => {
+const inputSx = {
+  mb: 3,
+  background: 'rgba(255, 255, 255, 0.04)',
+  border: '1px solid rgba(255, 255, 255, 0.1)',
+  borderRadius: '12px',
+  color: 'heading',
+  fontFamily: 'body',
+  fontSize: [1, 2],
+  px: 3,
+  py: 3,
+  transition: 'all 0.25s ease',
+  '&::placeholder': {
+    color: 'rgba(148, 163, 184, 0.5)',
+  },
+  '&:focus': {
+    outline: 'none',
+    border: '1px solid rgba(139, 92, 246, 0.6)',
+    background: 'rgba(139, 92, 246, 0.06)',
+    boxShadow: '0 0 0 3px rgba(139, 92, 246, 0.12)',
+  },
+};
+
+const ContactForm: React.FC<Props> = ({ url = contactFormUrl }) => {
   const [isDialogOpen, setIsDialogOpen] = useTAndCDialog();
 
   const handleOpenDialog = () => {
@@ -30,17 +52,17 @@ const ContactForm: React.FC<Props> = ({ url= contactFormUrl }) => {
 
   return (
     <section id="contact">
-      <Container className={'contact-form'}>
+      <Container className={'contact-form'} sx={{ px: 0 }}>
         <Formik
           onSubmit={(values, actions) => {
             const formData = `${url}&entry.1882384716=${values.name}&entry.367399747=${values.email}&entry.1157697554=${encodeURI(
               values.content
             )}&submit=Submit`;
             fetch(formData, {
-              method: 'GET', // *GET, POST, PUT, DELETE, etc.
-              mode: 'no-cors', // no-cors, cors, *same-origin
-              cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-              credentials: 'omit', // include, *same-origin, omit
+              method: 'GET',
+              mode: 'no-cors',
+              cache: 'no-cache',
+              credentials: 'omit',
               headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
               },
@@ -77,45 +99,47 @@ const ContactForm: React.FC<Props> = ({ url= contactFormUrl }) => {
         >
           {({ values, errors, status, touched, handleBlur, handleChange, handleSubmit, isSubmitting }) => {
             return status != null ? (
-              <Container className={'contact-message '}>
+              <Container className={'contact-message'}>
                 <h3 className={[status.code === 400 ? 'Message-title_error' : 'Message-title_success', 'Message-title'].join(' ')}>
-                  {status.code === 400 ? 'Houston, we have a problem' : 'Success'}
+                  {status.code === 400 ? 'Houston, we have a problem' : 'Message sent!'}
                 </h3>
-                <h6>{status.msg}</h6>
+                <p style={{ color: 'rgba(148,163,184,0.9)', lineHeight: 1.65 }}>{status.msg}</p>
               </Container>
             ) : (
               <form onSubmit={handleSubmit} autoComplete="off">
                 <Input
-                  m={4}
-                  margin="normal"
+                  sx={{
+                    ...inputSx,
+                    ...(errors.name && touched.name ? { border: '1px solid rgba(248, 113, 113, 0.6)' } : {}),
+                  }}
                   required={true}
                   id="name"
-                  placeholder={'Name'}
-                  style={{ borderWidth: 2 }}
-                  color={errors.name && touched.name ? 'red' : 'default'}
+                  placeholder={'Your name'}
                   value={values.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
                 <Input
-                  margin="normal"
-                  m={4}
+                  sx={{
+                    ...inputSx,
+                    ...(errors.email && touched.email ? { border: '1px solid rgba(248, 113, 113, 0.6)' } : {}),
+                  }}
                   required={true}
                   id="email"
-                  placeholder={'Email'}
-                  style={{ borderWidth: 2 }}
-                  color={errors.email && touched.email ? 'red' : 'default'}
+                  placeholder={'Your email'}
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
                 <Textarea
-                  margin="normal"
-                  m={4}
+                  sx={{
+                    ...inputSx,
+                    resize: 'vertical',
+                    minHeight: '140px',
+                    ...(errors.content && touched.content ? { border: '1px solid rgba(248, 113, 113, 0.6)' } : {}),
+                  }}
                   rows={6}
                   required={true}
-                  style={{ borderWidth: 2 }}
-                  color={errors.content && touched.content ? 'red' : 'default'}
                   id="content"
                   placeholder="Describe what we can help you with..."
                   value={values.content}
@@ -123,24 +147,58 @@ const ContactForm: React.FC<Props> = ({ url= contactFormUrl }) => {
                   onBlur={handleBlur}
                 />
 
-                <Box mb={2} mt={2}>
-                  <Label htmlFor="termsChecked">
-                    <Field type="checkbox" name="termsChecked" sx={{ width: 20 }} />
-                    &nbsp; I agree to the &nbsp;
-                    <Link color="secondary" onClick={handleOpenDialog}>
-                      {' '}
-                      terms & conditions
+                <Box mb={3} mt={1}>
+                  <Label
+                    htmlFor="termsChecked"
+                    sx={{
+                      color: 'rgba(148, 163, 184, 0.8)',
+                      fontSize: 1,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 2,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <Field type="checkbox" name="termsChecked" sx={{ width: 18, height: 18, cursor: 'pointer' }} />
+                    I agree to the&nbsp;
+                    <Link
+                      sx={{ color: 'primary', cursor: 'pointer', fontWeight: 500 }}
+                      onClick={handleOpenDialog}
+                    >
+                      terms &amp; conditions
                     </Link>
                   </Label>
-                  <div className={['checkboxHelper'].join(' ')}>{errors.termsChecked && errors.termsChecked}</div>
+                  <div className={'checkboxHelper'}>{errors.termsChecked && errors.termsChecked}</div>
                 </Box>
                 <Button
                   type="submit"
-                  backgroundColor={Object.keys(touched).length === 0 || isSubmitting || Object.keys(errors).length > 0 ? 'grey' : 'primary'}
-                  color="text"
                   disabled={Object.keys(touched).length === 0 || isSubmitting || Object.keys(errors).length > 0}
+                  sx={{
+                    background:
+                      Object.keys(touched).length === 0 || isSubmitting || Object.keys(errors).length > 0
+                        ? 'rgba(255,255,255,0.1)'
+                        : 'linear-gradient(135deg, #8B5CF6 0%, #22D3EE 100%)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '12px',
+                    px: 5,
+                    py: 3,
+                    fontSize: [1, 2],
+                    fontWeight: 600,
+                    fontFamily: 'body',
+                    letterSpacing: '0.04em',
+                    cursor:
+                      Object.keys(touched).length === 0 || isSubmitting || Object.keys(errors).length > 0
+                        ? 'not-allowed'
+                        : 'pointer',
+                    transition: 'all 0.25s ease',
+                    '&:hover:not(:disabled)': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 8px 24px rgba(139, 92, 246, 0.35)',
+                    },
+                  }}
                 >
-                  Submit
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             );

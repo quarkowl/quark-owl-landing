@@ -15,47 +15,68 @@ const ProjectCard = ({ link, title, children, bg }: ProjectCardProps) => (
     rel="noreferrer noopener"
     sx={{
       width: `100%`,
-      boxShadow: `lg`,
       position: `relative`,
       textDecoration: `none`,
-      borderRadius: `lg`,
-      px: 4,
-      py: 4,
+      borderRadius: `24px`,
+      px: 5,
+      py: 5,
       color: `white`,
-      background: bg || `none`,
-      transition: `all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important`,
+      background: `rgba(15, 10, 30, 0.55)`,
+      backdropFilter: `blur(16px)`,
+      WebkitBackdropFilter: `blur(16px)`,
+      border: `1px solid rgba(255, 255, 255, 0.08)`,
+      overflow: `hidden`,
+      transition: `all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important`,
+      boxShadow: `0 4px 24px rgba(0, 0, 0, 0.25)`,
+      display: `flex`,
+      flexDirection: `column`,
+      gap: 3,
+      "&::before": {
+        content: `""`,
+        position: `absolute`,
+        top: 0,
+        left: 0,
+        right: 0,
+        height: `3px`,
+        background: bg || `linear-gradient(to right, #8B5CF6, #22D3EE)`,
+        zIndex: 1,
+      },
       "&:hover": {
         color: `white !important`,
-        transform: `translateY(-5px)`,
-        boxShadow: `xl`,
+        transform: `translateY(-6px)`,
+        boxShadow: `0 20px 48px rgba(0, 0, 0, 0.35)`,
+        border: `1px solid rgba(255, 255, 255, 0.15)`,
+        background: `rgba(20, 14, 40, 0.7)`,
       },
     }}
   >
     <div
       sx={{
-        opacity: 0.85,
-        textShadow: `0 2px 10px rgba(0, 0, 0, 0.3)`,
+        textTransform: `uppercase`,
+        letterSpacing: `0.08em`,
+        fontSize: [2, 3, 4],
+        fontWeight: 700,
+        lineHeight: 1.2,
+        background: bg || `linear-gradient(to right, #a78bfa, #22d3ee)`,
+        WebkitBackgroundClip: `text`,
+        WebkitTextFillColor: `transparent`,
+        backgroundClip: `text`,
+      }}
+    >
+      {title}
+    </div>
+    <div
+      sx={{
         p: {
           fontSize: [1, 2],
-          color: `white`,
+          color: `rgba(148, 163, 184, 0.9)`,
           margin: 0,
-          lineHeight: 1.25,
+          lineHeight: 1.65,
+          fontWeight: 400,
         },
       }}
     >
       {children}
-    </div>
-    <div
-      sx={{
-        textTransform: `uppercase`,
-        letterSpacing: `wide`,
-        pt: 4,
-        fontSize: [3, 4, 5],
-        fontWeight: `medium`,
-        lineHeight: 1.125,
-      }}
-    >
-      {title}
     </div>
   </a>
 )

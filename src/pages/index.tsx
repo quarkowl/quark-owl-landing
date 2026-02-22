@@ -4,6 +4,8 @@ import { Parallax } from '@react-spring/parallax';
 import Layout from '../components/layout';
 import Hero from '../components/hero';
 import Projects from '../components/projects';
+import Process from '../components/process';
+import SuccessStories from '../components/success-stories';
 import About from '../components/about';
 import Contact from '../components/contact';
 import Seo from '../components/seo';
@@ -24,12 +26,14 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <React.Fragment>
       <Layout>
-        <Parallax pages={5}>
+        <Parallax pages={7}>
           <Logo />
           <Hero offset={0} factor={1} />
-          <Projects offset={1} factor={2} />
-          <About offset={3} factor={1} />
-          <Contact offset={4} factor={1} />
+          <SuccessStories offset={1} factor={1} />
+          <Projects offset={2} factor={1} />
+          <Process offset={3.5} factor={1} />
+          <About offset={4.5} factor={1} />
+          <Contact offset={5} factor={1} />
         </Parallax>
       </Layout>
       <CookieConsent location="bottom">
