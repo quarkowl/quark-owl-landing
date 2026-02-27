@@ -10,6 +10,7 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
   <div>
     <Divider
       bg="radial-gradient(ellipse at 70% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 55%), linear-gradient(180deg, #080D1E 0%, #0a1228 50%, #080D1E 100%)"
+      bgLight="radial-gradient(ellipse at 70% 50%, rgba(8,145,178,0.05) 0%, transparent 55%), linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 50%, #F8FAFC 100%)"
       clipPath="polygon(0 14%, 100% 4%, 100% 86%, 0 96%)"
       speed={0.2}
       offset={offset}

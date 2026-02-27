@@ -38,8 +38,9 @@ const Stats = ({ offset, factor = 0.6 }: { offset: number; factor?: number }) =>
                 textAlign: `center`,
                 py: [3, 4],
                 px: 3,
-                background: `rgba(255,255,255,0.03)`,
-                border: `1px solid rgba(255,255,255,0.07)`,
+                background: `cardBg`,
+                border: `1px solid`,
+                borderColor: `cardBorder`,
                 borderRadius: `20px`,
                 backdropFilter: `blur(8px)`,
               }}

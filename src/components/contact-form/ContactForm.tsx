@@ -1,11 +1,10 @@
-// @flow
 import React from 'react';
 import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
 import { Input, Checkbox, Container, Link, Box, Textarea, Button, Label } from 'theme-ui';
 
 import './ContactForm.css';
-import { useTAndCDialog } from '../../hooks';
+import { useDialog } from '../../hooks';
 import config from '../../../config';
 
 interface Props {
@@ -23,8 +22,9 @@ const ContactSchema = Yup.object().shape({
 
 const inputSx = {
   mb: 3,
-  background: 'rgba(255, 255, 255, 0.04)',
-  border: '1px solid rgba(255, 255, 255, 0.1)',
+  background: 'cardBg',
+  border: '1px solid',
+  borderColor: 'cardBorder',
   borderRadius: '12px',
   color: 'heading',
   fontFamily: 'body',
@@ -33,21 +33,22 @@ const inputSx = {
   py: 3,
   transition: 'all 0.25s ease',
   '&::placeholder': {
-    color: 'rgba(148, 163, 184, 0.5)',
+    color: 'textMuted',
+    opacity: 0.6,
   },
   '&:focus': {
     outline: 'none',
-    border: '1px solid rgba(139, 92, 246, 0.6)',
+    borderColor: 'primary',
     background: 'rgba(139, 92, 246, 0.06)',
     boxShadow: '0 0 0 3px rgba(139, 92, 246, 0.12)',
   },
 };
 
 const ContactForm: React.FC<Props> = ({ url = contactFormUrl }) => {
-  const [isDialogOpen, setIsDialogOpen] = useTAndCDialog();
+  const [, setDialogType] = useDialog();
 
   const handleOpenDialog = () => {
-    setIsDialogOpen(true);
+    setDialogType('terms');
   };
 
   return (
@@ -176,7 +177,7 @@ const ContactForm: React.FC<Props> = ({ url = contactFormUrl }) => {
                   sx={{
                     background:
                       Object.keys(touched).length === 0 || isSubmitting || Object.keys(errors).length > 0
-                        ? 'rgba(255,255,255,0.1)'
+                        ? 'cardBg'
                         : 'linear-gradient(135deg, #8B5CF6 0%, #22D3EE 100%)',
                     color: 'white',
                     border: 'none',

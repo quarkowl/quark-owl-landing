@@ -9,7 +9,7 @@ import SuccessStories from '../components/success-stories';
 import About from '../components/about';
 import Contact from '../components/contact';
 import Seo from '../components/seo';
-import { useSiteMetadata, useTAndCDialog } from '../hooks';
+import { useSiteMetadata, useDialog } from '../hooks';
 import '../index.css';
 import ThemeToggle from '../components/themeToggle';
 import Logo from '../components/logo';
@@ -17,16 +17,12 @@ import CookieConsent from 'react-cookie-consent';
 import { Link } from 'theme-ui';
 
 const IndexPage: React.FC<PageProps> = () => {
-  const [isDialogOpen, setIsDialogOpen] = useTAndCDialog();
-
-  const handleCloseDialog = () => {
-    setIsDialogOpen(false);
-  };
+  const [, setDialogType] = useDialog();
 
   return (
     <React.Fragment>
       <Layout>
-        <Parallax pages={7}>
+        <Parallax pages={6}>
           <Logo />
           <Hero offset={0} factor={1} />
           <SuccessStories offset={1} factor={1} />
@@ -38,7 +34,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </Layout>
       <CookieConsent location="bottom">
         This website uses cookies to enhance the user experience. Please read our{' '}
-        <Link color="secondary" onClick={() => setIsDialogOpen(true)}>
+        <Link color="secondary" onClick={() => setDialogType('privacy')}>
           Privacy Policy
         </Link>
       </CookieConsent>

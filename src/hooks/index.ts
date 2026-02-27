@@ -1,3 +1,3 @@
-// @flow
 export { default as useSiteMetadata } from './user-site-metadata';
-export { default as useTAndCDialog } from './use-t-and-c-dialog';
+export { default as useDialog } from './use-t-and-c-dialog';
+export type { DialogType } from './use-t-and-c-dialog';

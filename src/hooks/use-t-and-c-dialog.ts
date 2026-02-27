@@ -1,40 +1,39 @@
-// @flow
 import { useState, useEffect } from 'react';
 
+export type DialogType = 'terms' | 'privacy' | null;
+
 const dialogState = {
-  state: false,
-  setState(newState: boolean) {
+  state: null as DialogType,
+  setState(newState: DialogType) {
     this.state = newState;
-    // @ts-ignore
-    this.setters.forEach((setter) => setter(this.state));
+    this.setters.forEach((setter: any) => setter(this.state));
   },
-  setters: [],
+  setters: [] as any[],
 };
 
 dialogState.setState = dialogState.setState.bind(dialogState);
 
-const useTAndCDialog = (): [boolean, (shouldOpen?: boolean) => void] => {
-  const [isDialogOpen, setIsDialogOpen] = useState(dialogState.state);
-  // @ts-ignore
-  if (!dialogState.setters.includes(setIsDialogOpen)) {
-    // @ts-ignore
-    dialogState.setters.push(setIsDialogOpen);
+const useDialog = (): [DialogType, (type: DialogType) => void] => {
+  const [dialogType, setDialogType] = useState(dialogState.state);
+
+  if (!dialogState.setters.includes(setDialogType)) {
+    dialogState.setters.push(setDialogType);
   }
 
   useEffect(
     () => () => {
       dialogState.setters = dialogState.setters.filter(
-        setter => setter !== setIsDialogOpen
+        setter => setter !== setDialogType
       );
     },
     []
   );
 
-  const toggleIsDialogOpen = (shouldOpen?: boolean) => {
-    dialogState.setState(shouldOpen !== undefined ? shouldOpen : !isDialogOpen);
+  const openDialog = (type: DialogType) => {
+    dialogState.setState(type);
   };
 
-  return [isDialogOpen, toggleIsDialogOpen];
+  return [dialogType, openDialog];
 };
 
-export default useTAndCDialog;
+export default useDialog;

@@ -1,7 +1,10 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx, Link } from 'theme-ui';
+import { useDialog } from '../hooks';
 
 const Footer = () => {
+  const [, setDialogType] = useDialog();
+
   return (
     <div
       sx={{
@@ -14,7 +17,22 @@ const Footer = () => {
         letterSpacing: `0.04em`,
       }}
     >
-      Copyright &copy; QuarkOwl LTD {new Date().getFullYear()}. All rights reserved.
+      <div sx={{ mb: 2 }}>
+        <Link
+          sx={{ color: `primary`, cursor: `pointer`, fontWeight: 500 }}
+          onClick={() => setDialogType('terms')}
+        >
+          Terms &amp; Conditions
+        </Link>
+        {' | '}
+        <Link
+          sx={{ color: `primary`, cursor: `pointer`, fontWeight: 500 }}
+          onClick={() => setDialogType('privacy')}
+        >
+          Privacy Policy
+        </Link>
+      </div>
+      Copyright &copy; QuarkOwl {new Date().getFullYear()}. All rights reserved.
     </div>
   );
 };

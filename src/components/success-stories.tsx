@@ -94,6 +94,7 @@ const SuccessStories = ({ offset, factor = 1 }: { offset: number; factor?: numbe
     <div>
       <Divider
         bg="radial-gradient(ellipse at 20% 60%, rgba(139,92,246,0.10) 0%, transparent 55%), radial-gradient(ellipse at 85% 30%, rgba(34,211,238,0.07) 0%, transparent 50%), linear-gradient(180deg, #080D1E 0%, #0b0f21 100%)"
+        bgLight="radial-gradient(ellipse at 20% 60%, rgba(124,58,237,0.06) 0%, transparent 55%), radial-gradient(ellipse at 85% 30%, rgba(8,145,178,0.05) 0%, transparent 50%), linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%)"
         speed={0.15}
         offset={offset}
         factor={factor}
@@ -137,8 +138,9 @@ const SuccessStories = ({ offset, factor = 1 }: { offset: number; factor?: numbe
             <div
               sx={{
                 position: `relative`,
-                background: `rgba(255,255,255,0.03)`,
-                border: `1px solid rgba(255,255,255,0.07)`,
+                background: `cardBg`,
+                border: `1px solid`,
+                borderColor: `cardBorder`,
                 borderRadius: `24px`,
                 p: [4, 5],
                 backdropFilter: `blur(12px)`,
@@ -262,8 +264,9 @@ const SuccessStories = ({ offset, factor = 1 }: { offset: number; factor?: numbe
                           px: 2,
                           py: `4px`,
                           borderRadius: `6px`,
-                          background: `rgba(255,255,255,0.05)`,
-                          border: `1px solid rgba(255,255,255,0.1)`,
+                          background: `cardBg`,
+                          border: `1px solid`,
+                          borderColor: `cardBorder`,
                           color: `text`,
                           fontFamily: `monospace`,
                           letterSpacing: `0.02em`,
@@ -325,9 +328,9 @@ const SuccessStories = ({ offset, factor = 1 }: { offset: number; factor?: numbe
                     sx={{
                       flexShrink: 0,
                       textAlign: `left`,
-                      background: isActive ? `rgba(255,255,255,0.06)` : `rgba(255,255,255,0.02)`,
+                      background: isActive ? `cardBgHover` : `cardBg`,
                       border: `1px solid`,
-                      borderColor: isActive ? `rgba(139,92,246,0.35)` : `rgba(255,255,255,0.07)`,
+                      borderColor: isActive ? `cardBorderHover` : `cardBorder`,
                       borderRadius: `16px`,
                       px: [3, 3, 4],
                       py: [2, 2, 3],
@@ -336,8 +339,8 @@ const SuccessStories = ({ offset, factor = 1 }: { offset: number; factor?: numbe
                       position: `relative`,
                       overflow: `hidden`,
                       '&:hover': {
-                        borderColor: `rgba(139,92,246,0.25)`,
-                        background: `rgba(255,255,255,0.05)`,
+                        borderColor: `cardBorderHover`,
+                        background: `cardBgHover`,
                       },
                       '&::before': {
                         content: `""`,

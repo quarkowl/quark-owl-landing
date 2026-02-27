@@ -11,6 +11,7 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
   <div>
     <Divider
       bg="linear-gradient(160deg, #0f0822 0%, #0a1628 40%, #0d0f24 70%, #0f0822 100%)"
+      bgLight="linear-gradient(160deg, #EDE9FE 0%, #E0F2FE 40%, #EEF2FF 70%, #EDE9FE 100%)"
       sx={{ clipPath: `polygon(0 12%, 100% 22%, 100% 88%, 0 78%)` }}
       speed={-0.2}
       offset={1.7}
@@ -25,7 +26,7 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
             gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
             h2: {
               gridColumn: `-1/1`,
-              color: `white !important`,
+              color: `heading`,
               fontSize: [4, 5, 6],
               fontWeight: 700,
               letterSpacing: `-0.02em`,

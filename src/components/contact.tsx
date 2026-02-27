@@ -12,6 +12,7 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
   <div>
     <Divider
       bg="radial-gradient(ellipse at 30% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 55%), radial-gradient(ellipse at 75% 30%, rgba(34, 211, 238, 0.07) 0%, transparent 50%), linear-gradient(180deg, #080D1E 0%, #0d0826 100%)"
+      bgLight="radial-gradient(ellipse at 30% 60%, rgba(124,58,237,0.06) 0%, transparent 55%), radial-gradient(ellipse at 75% 30%, rgba(8,145,178,0.05) 0%, transparent 50%), linear-gradient(180deg, #F8FAFC 0%, #F5F3FF 100%)"
       speed={0.1}
       offset={offset}
       factor={factor}

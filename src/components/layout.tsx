@@ -6,7 +6,7 @@ import CookieConsent from 'react-cookie-consent';
 import MdxComponents from './mdx-components';
 import Logo from './themeToggle';
 import ThemeToggle from './themeToggle';
-import { useTAndCDialog } from '../hooks';
+import { useDialog } from '../hooks';
 import DialogEl from './Dialog/Dialog';
 
 type LayoutProps = {
@@ -15,10 +15,10 @@ type LayoutProps = {
 };
 
 const Layout = ({ children, className = `` }: LayoutProps) => {
-  const [isDialogOpen, setIsDialogOpen] = useTAndCDialog();
+  const [dialogType, setDialogType] = useDialog();
 
   const handleCloseDialog = () => {
-    setIsDialogOpen(false);
+    setDialogType(null);
   };
 
   return (
@@ -43,7 +43,7 @@ const Layout = ({ children, className = `` }: LayoutProps) => {
           },
         })}
       />
-      <DialogEl isOpen={isDialogOpen} onClose={setIsDialogOpen} />
+      <DialogEl dialogType={dialogType} onClose={handleCloseDialog} />
       <MDXProvider components={MdxComponents}>
         <ThemeToggle />
         <main className={className}>{children}</main>

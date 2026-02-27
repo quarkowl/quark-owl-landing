@@ -30,10 +30,10 @@
   padding: 28px 20px;
   width: 100%;
   z-index: 1000000;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--theme-ui-colors-cardBg, rgba(255, 255, 255, 0.04));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--theme-ui-colors-cardBorder, rgba(255, 255, 255, 0.07));
   border-radius: 20px;
   transition: all 0.3s ease;
   position: relative;
@@ -51,7 +51,7 @@
 }
 
 .item:hover {
-  border-color: rgba(139, 92, 246, 0.35);
+  border-color: var(--theme-ui-colors-cardBorderHover, rgba(139, 92, 246, 0.35));
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(139, 92, 246, 0.15);
 }
@@ -78,7 +78,7 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.03em;
-  color: rgba(148, 163, 184, 0.85);
+  color: var(--theme-ui-colors-text, rgba(148, 163, 184, 0.85));
   text-align: center;
   word-break: keep-all;
   white-space: nowrap;
@@ -86,5 +86,5 @@
 }
 
 .item:hover .title {
-  color: rgba(241, 245, 249, 0.95);
+  color: var(--theme-ui-colors-heading, rgba(241, 245, 249, 0.95));
 }

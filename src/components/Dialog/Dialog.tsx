@@ -1,29 +1,32 @@
 /** @jsx jsx */
 import { Button, jsx, useColorMode } from 'theme-ui';
-import { withPrefix } from 'gatsby';
 import * as Dialog from '@radix-ui/react-dialog';
 
 import './dialog.css';
 import TAndC from '../t-and-c/TAndC';
+import PrivacyPolicy from '../t-and-c/PrivacyPolicy';
 import * as React from 'react';
+import type { DialogType } from '../../hooks';
 
 type Props = {
-  isOpen: boolean;
+  dialogType: DialogType;
   onClose: () => void;
 };
 
-const DialogEl = ({ isOpen, onClose }: Props) => {
+const DialogEl = ({ dialogType, onClose }: Props) => {
   const [colorMode, setColorMode] = useColorMode<'light' | 'dark'>();
   const isDark = colorMode === `dark`;
+  const title = dialogType === 'terms' ? 'Terms & Conditions' : 'Privacy Policy';
+
   return (
     <div>
-      <Dialog.Root open={isOpen} onOpenChange={onClose}>
+      <Dialog.Root open={dialogType !== null} onOpenChange={onClose}>
         <Dialog.Portal>
           <Dialog.Overlay className="DialogOverlay">
             <Dialog.Content className={'DialogContent' + (isDark ? ' DialogDark' : '')}>
-              <Dialog.Title>Privacy Policy</Dialog.Title>
+              <Dialog.Title>{title}</Dialog.Title>
               <div className="DialogDescription">
-                <TAndC />
+                {dialogType === 'terms' ? <TAndC /> : <PrivacyPolicy />}
               </div>
               <Dialog.Close asChild>
                 <Button color="text" variant={'primary'}>

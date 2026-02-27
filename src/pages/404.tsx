@@ -57,4 +57,4 @@ const NotFound = (_props: PageProps) => (
 
 export default NotFound;
 
-export const Head: HeadFC = () => <Seo customTitle="Quark Owl LTD, 404 - Not Found" />;
+export const Head: HeadFC = () => <Seo customTitle="Quark Owl, 404 - Not Found" />;

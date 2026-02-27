@@ -31,6 +31,7 @@ const Process = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
   <div>
     <Divider
       bg="radial-gradient(ellipse at 80% 50%, rgba(99,102,241,0.09) 0%, transparent 55%), linear-gradient(180deg, #080D1E 0%, #0c1020 100%)"
+      bgLight="radial-gradient(ellipse at 80% 50%, rgba(99,102,241,0.05) 0%, transparent 55%), linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%)"
       speed={0.2}
       offset={offset}
       factor={factor}
@@ -71,15 +72,16 @@ const Process = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
               key={number}
               sx={{
                 position: `relative`,
-                background: `rgba(255,255,255,0.03)`,
-                border: `1px solid rgba(255,255,255,0.07)`,
+                background: `cardBg`,
+                border: `1px solid`,
+                borderColor: `cardBorder`,
                 borderRadius: `20px`,
                 p: [4, 5],
                 backdropFilter: `blur(10px)`,
                 overflow: `hidden`,
                 transition: `all 0.3s ease`,
                 '&:hover': {
-                  border: `1px solid rgba(139,92,246,0.25)`,
+                  borderColor: `cardBorderHover`,
                   transform: `translateY(-4px)`,
                   boxShadow: `0 12px 32px rgba(139,92,246,0.12)`,
                 },

@@ -1,7 +1,7 @@
 const data = {
   url: 'https://quarkowl.com',
   repo: 'quarkowl.com',
-  title: `QuarkOwl LTD - Engineering Solutions`,
+  title: `QuarkOwl - Engineering Solutions`,
   short_name: `QuarkOwl`,
   theme_color: '#00b9f1',
   description:
@@ -28,7 +28,7 @@ const data = {
     },
   },
   author: {
-    name: 'QuarkOwl LTD',
+    name: 'QuarkOwl',
     photo: '/logo.svg',
     contacts: {
       email: 'quarkowl@gmail.com',
